@@ -8,23 +8,54 @@
     tools:context=".HistoryActivity"
     android:background="@drawable/background_blue">
 
+
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="#FF6B6B"
+        android:gravity="center_vertical"
+        android:padding="10dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal"/>
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/text"
+            style="@style/text_button_salmon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/btn_arrow_back"
+            android:gravity="center"
+            android:text="Історія"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/btn_arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/arrow_back" />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clearHistoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/recycler_view"
-        android:text="чистити історію"/>
+        android:text="чистити історію"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

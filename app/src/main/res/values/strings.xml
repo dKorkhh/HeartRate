@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HeartRate</string>
+    <string name="_60_bpm"><![CDATA[<60 BPM]]></string>
+    <string name="_100_bpm"><![CDATA[>100 BPM]]></string>
+    <string name="heart_rate">Heart Rate</string>
+    <string name="text_your_tracker">Ваш трекер тиску</string>
+    <string name="text_onboarding1">Зазначайте, відстежуйте та аналізуйте свої показники артеріального тиску.</string>
+    <string name="start_text">Почати!</string>
+    <string name="text_first_def">Виконайте своє перше вимірювання</string>
+
 </resources>

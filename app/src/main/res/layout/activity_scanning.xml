@@ -5,35 +5,69 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Scanning.ScanningActivity">
+    tools:context=".Scanning.ScanningActivity"
+    android:background="@drawable/background_blue">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/close_image"
+            android:layout_margin="10dp"/>
+    </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout"
+        android:gravity="center"
         android:orientation="vertical">
 
+        <TextureView
+            android:id="@+id/textureView"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
 
         <TextView
+            style="@style/text_bold_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Палець не виявлено"/>
+            android:text="Палець не виявлено"
+            android:textSize="18dp"
+            android:layout_margin="10dp"/>
 
         <TextView
+            style="@style/gray_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Щільно прикладіть палець до камери"/>
+            android:text="Щільно прикладіть палець до камери" />
     </LinearLayout>
+
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/heart" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/heart_rate"
+        android:padding="40dp"
+        />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:src="@drawable/hands_phone"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginLeft="40dp"/>
 </RelativeLayout>

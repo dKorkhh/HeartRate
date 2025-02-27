@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class InformationActivity : AppCompatActivity() {
     private lateinit var arrImageView: Array<ImageView>
     private lateinit var llPagerDots: LinearLayout
     private lateinit var imageView: ImageView
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_information)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         imageView = findViewById(R.id.imageView)
         val btnStart = findViewById<AppCompatButton>(R.id.btn_start)
+        var textDescrip : TextView = findViewById<AppCompatButton>(R.id.text_description)
+        var mainText : TextView = findViewById<AppCompatButton>(R.id.text_main)
         llPagerDots = findViewById(R.id.pager_dots)
         setupPagerIndicatorDots()
 
@@ -38,24 +40,37 @@ class MainActivity : AppCompatActivity() {
         var j = 0
 
         btnStart.setOnClickListener {
-            if (j == 2) {
+            j++
+
+            if (j == 3) {
                 val intent = Intent(this, Homepage::class.java)
                 startActivity(intent)
+                finish()
             }
-
-            for (i in arrImageView.indices) {
-                arrImageView[i].setImageResource(R.drawable.unselected_dot)
-            }
-            arrImageView[j + 1].setImageResource(R.drawable.selected_dot)
-
-            imageView.setImageResource(
-                when (j) {
-                    1 -> R.drawable.onboarding2
-                    else -> R.drawable.onboarding3
+            else{
+                for (i in arrImageView.indices) {
+                    arrImageView[i].setImageResource(R.drawable.unselected_dot)
                 }
-            )
+                arrImageView[j].setImageResource(R.drawable.selected_dot)
 
-            j++
+
+                if (j == 1){
+                    textDescrip.setText("Програма надає дієві поради, які допоможуть " +
+                            "вам підтримувати оптимальний рівень артеріального тиску та " +
+                            "\u2028зменшити фактори ризику серцево-судинних захворювань.")
+
+                    btnStart.setText("Продовжити!")
+                    imageView.setImageResource(R.drawable.onboarding1)
+                    mainText.setText("Персоналізовані поради")
+                }
+                else if (j == 2){
+                    textDescrip.setText("Не відставайте від графіка контролю артеріального тиску " +
+                            "та прийому ліків за допомогою спеціальних нагадувань.")
+                    btnStart.setText("Почати!")
+                    imageView.setImageResource(R.drawable.onboarding3)
+                    mainText.setText("Нагадування")
+                }
+            }
         }
 
     }

@@ -1,7 +1,6 @@
 package com.example.heartrate
 
 import android.content.Intent
-import android.health.connect.datatypes.units.Percentage
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -45,7 +44,7 @@ class WelcomeActivity : AppCompatActivity() {
                 Thread.sleep(70)
             }
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, InformationActivity::class.java)
             startActivity(intent)
             finish()
         }.start()

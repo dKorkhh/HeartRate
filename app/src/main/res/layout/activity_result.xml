@@ -11,10 +11,11 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="#FF6B6B"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal">
+        android:padding="10dp"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,25 +24,38 @@
             android:text="Результат"
             android:textColor="@color/white"
             android:textSize="24dp"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"
+            style="@style/text_button_salmon"/>
 
         <TextView
+            style="@style/text_button_salmon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/btn_history"
+            android:gravity="center"
             android:text="Історія"
-            android:textColor="@color/white"
-            android:textSize="32dp"
-            android:layout_centerInParent="true" />
+            android:textSize="20dp" />
 
-
+        <ImageView
+            android:id="@+id/btn_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/time_machine" />
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="20px">
+        android:layout_margin="40px"
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,13 +71,19 @@
                     android:id="@+id/your_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ваш Результат" />
+                    android:text="Ваш Результат"
+                    style="@style/text_bold_black"
+                    android:textSize="18dp"/>
 
                 <TextView
+                    android:id="@+id/name_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/your_result"
-                    android:text="Звичайно" />
+                    android:text="Звичайно"
+                    style="@style/text_bold_black"
+                    android:textSize="28dp"
+                    android:textColor="@color/light_green"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -96,57 +116,125 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
-                        android:text="Уповільнений"
-                        android:layout_alignParentStart="true"/>
+                        android:gravity="center_vertical"
+                        android:background="@drawable/box_pulse_name"
+                        android:paddingRight="15dp">
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot"
+                            android:backgroundTint="@color/light_blue"
+                            android:layout_marginHorizontal="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Уповільнений"
+                            android:layout_alignParentStart="true"
+                            style="@style/text_black_card"
+                            android:layout_marginVertical="2dp"
+                            android:gravity="center"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="<60 BPM" />
+                        android:text="@string/_60_bpm"
+                        style="@style/gray_text_card" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
-                        android:text="Звичайний"
-                        android:layout_alignParentStart="true"/>
+                        android:gravity="center_vertical"
+                        android:background="@drawable/box_pulse_name"
+                        android:paddingRight="15dp">
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot"
+                            android:backgroundTint="@color/light_green"
+                            android:layout_marginHorizontal="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Звичайний"
+                            android:layout_alignParentStart="true"
+                            style="@style/text_black_card"
+                            android:layout_marginVertical="2dp"
+                            android:gravity="center"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="60-100 BPM" />
+                        android:text="60-100 BPM"
+                        style="@style/gray_text_card"
+                        android:textColor="@color/black"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
-                        android:text="Прискорений"
-                        android:layout_alignParentStart="true"/>
+                        android:gravity="center_vertical"
+                        android:background="@drawable/box_pulse_name"
+                        android:paddingRight="15dp">
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot"
+                            android:backgroundTint="@color/light_red"
+                            android:layout_marginHorizontal="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Прискорений"
+                            android:layout_alignParentStart="true"
+                            style="@style/text_black_card"
+                            android:layout_marginVertical="2dp"
+                            android:gravity="center"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text=">100 BPM" />
+                        android:text="@string/_100_bpm"
+                        style="@style/gray_text_card" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
@@ -159,6 +247,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="Готово"
-        android:textSize="32dp"
-        android:layout_margin="20px"/>
+        style="@style/text_button_salmon"
+        android:layout_margin="40px"
+        android:background="@drawable/salmon_button"/>
 </RelativeLayout>
