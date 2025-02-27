@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Левая голубая часть -->
+    <item android:width="20dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp"/>
+            <solid android:color="#00D2FF"/>
+        </shape>
+    </item>
+
+    <!-- Центральная зеленая часть -->
+    <item android:left="20dp" android:width="20dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp"/>
+            <solid android:color="#16E68E"/>
+        </shape>
+    </item>
+
+    <!-- Правая красная часть -->
+    <item android:left="40dp" android:width="20dp">
+            <shape android:shape="rectangle">
+                <corners android:radius="20dp"/>
+                <solid android:color="#FF3B30"/>
+            </shape>
+    </item>
+</layer-list>
