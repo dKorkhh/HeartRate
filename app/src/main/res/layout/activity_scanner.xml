@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Scanning.ScanningActivity"
+    tools:context=".Scanning.ScannerActivity"
     android:background="@drawable/background_blue">
 
     <RelativeLayout
@@ -31,10 +31,15 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextureView
-            android:id="@+id/textureView"
+        <!--<TextureView
+        android:id="@+id/textureView"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />-->
+
+        <SurfaceView
+            android:id="@+id/surface_view"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"/>
 
         <TextView
             style="@style/text_bold_black"
@@ -70,4 +75,5 @@
         android:layout_alignParentEnd="true"
         android:src="@drawable/hands_phone"
         android:layout_marginLeft="40dp"/>
+
 </RelativeLayout>

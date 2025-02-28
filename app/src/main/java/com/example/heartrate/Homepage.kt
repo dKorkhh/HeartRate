@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.heartrate.Scanning.ScanningActivity
+import com.example.heartrate.Scanning.ScannerActivity
 
 class Homepage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class Homepage : AppCompatActivity() {
         val btnHistory : ImageView = findViewById(R.id.btn_history)
 
         btnMeasure.setOnClickListener(){
-            val intent = Intent(this, ScanningActivity::class.java)
+            val intent = Intent(this, ScannerActivity::class.java)
             startActivity(intent)
         }
 
