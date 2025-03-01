@@ -2,6 +2,7 @@ package com.example.heartrate
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.widget.ProgressBar
@@ -10,6 +11,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.heartrate.Adapter.ResultHistoryCard
+import com.google.gson.Gson
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var progressBar : ProgressBar
@@ -30,7 +37,24 @@ class WelcomeActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progress_bar)
         percentageBar = findViewById(R.id.progress_text)
 
+        val result = ResultHistoryCard("62", getCurrentTime() + "\n" + getCurrentDate())
+        val json = Gson().toJson(result)
+
+        val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+        val file = File(downloadsDir, "user_data.json")
+        file.writeText(json)
+
         startProgress()
+    }
+
+    fun getCurrentTime(): String {
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return timeFormat.format(Date())
+    }
+
+    fun getCurrentDate(): String {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return dateFormat.format(Date())
     }
 
     private fun startProgress() {

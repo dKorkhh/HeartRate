@@ -54,27 +54,19 @@ class HistoryActivity : AppCompatActivity() {
 
         val btnBack : ImageView = findViewById(R.id.btn_arrow_back)
         btnBack.setOnClickListener(){
-            Toast.makeText(this, "Back to scanning", Toast.LENGTH_SHORT).show()
             finish()
         }
 
         btnClear.setOnClickListener {
-            // Clear the items list
             items.clear()
             adapter.notifyDataSetChanged()
 
-            // Delete the JSON file
             val file = File(downloadsDir, "user_data.json")
             if (file.exists()) {
                 file.delete()
             }
 
-            Toast.makeText(this, "History cleared", Toast.LENGTH_SHORT).show()
         }
-
-
-        Toast.makeText(this, "User data: $userList", Toast.LENGTH_SHORT).show()
-
     }
 
     fun readJsonFromDownloads(): ResultHistoryCard? {
@@ -83,8 +75,8 @@ class HistoryActivity : AppCompatActivity() {
             val file = File(downloadsDir, "user_data.json")
 
             if (file.exists()) {
-                val json = file.readText() // Read the content of the file
-                return Gson().fromJson(json, ResultHistoryCard::class.java) // Convert JSON to User object
+                val json = file.readText()
+                return Gson().fromJson(json, ResultHistoryCard::class.java)
             } else {
                 println("File does not exist")
                 return null

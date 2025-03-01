@@ -36,12 +36,13 @@
         android:layout_width="50dp"
         android:layout_height="50dp" />-->
 
-        <SurfaceView
-            android:id="@+id/surface_view"
+        <ImageView
+            android:id="@+id/preview"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
 
         <TextView
+            android:id="@+id/define_finger"
             style="@style/text_bold_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,24 +51,46 @@
             android:layout_margin="10dp"/>
 
         <TextView
+            android:id="@+id/define_finger2"
             style="@style/gray_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Щільно прикладіть палець до камери" />
     </LinearLayout>
 
-    <ImageView
+    <FrameLayout
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/heart_rate"
-        android:padding="40dp"
-        />
+        android:layout_alignParentEnd="true">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart_rate"
+            android:padding="40dp"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/heart_rate"
+            style="@style/text_bold_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="--"
+            android:textSize="70dp"
+            android:paddingBottom="70dp"
+            android:paddingLeft="15dp"
+            android:textColor="@color/white"/>
+
+    </FrameLayout>
 
     <ImageView
+        android:id="@+id/hands_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView3"

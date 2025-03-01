@@ -14,6 +14,7 @@ import com.example.heartrate.Homepage
 import com.example.heartrate.R
 
 class ResultActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,6 +25,10 @@ class ResultActivity : AppCompatActivity() {
             insets
         }
 
+        var lowPulse: TextView = findViewById(R.id.low_pulse)
+        var highPulse: TextView = findViewById(R.id.high_pulse)
+        var normalPulse : TextView = findViewById(R.id.normal_pulse)
+
         val bpm = intent.getStringExtra("PULSE")
         val date = intent.getStringExtra("DATETIME")
 
@@ -32,6 +37,16 @@ class ResultActivity : AppCompatActivity() {
 
         bpmTextView.text = bpm
         dateTextView.text = date
+
+        if (bpm != null) {
+            if (Integer.parseInt(bpm) < 60)
+                lowPulse.setTextColor(resources.getColor(R.color.black))
+            else if (Integer.parseInt(bpm) > 100)
+                highPulse.setTextColor(resources.getColor(R.color.black))
+            else
+                normalPulse.setTextColor(resources.getColor(R.color.black))
+        }
+
 
         val btnDone : AppCompatButton = findViewById(R.id.btn_done)
         btnDone.setOnClickListener(){

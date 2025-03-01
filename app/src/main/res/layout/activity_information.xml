@@ -42,7 +42,8 @@
             android:layout_below="@+id/text_main"
             android:gravity="center"
             android:text="@string/text_onboarding1"
-            style="@style/text_black"/>
+            style="@style/text_black"
+            android:layout_margin="15dp"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -53,7 +54,8 @@
         android:background="@android:color/transparent"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btn_start"/>
+        app:layout_constraintBottom_toTopOf="@+id/btn_start"
+        android:layout_margin="15dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_start"
